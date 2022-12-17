@@ -1,0 +1,31 @@
+
+.PokemonPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 100vh;
+}
+
+.PokemonPage__pokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.PokemonPage__pokemon img {
+    width: 100%;
+}
+
+.PokemonPage__evolutions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.PokemonPage__evolution__pokemons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}

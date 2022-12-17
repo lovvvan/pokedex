@@ -1,5 +1,7 @@
 import useSWR from 'swr'
 import getAllEvolutionsOf from '../../utils/utils'
+import MiniPokemon from './MiniPokemon'
+import './PokemonPage.css'
 
 function PokemonPage({ pokemon }) {
   const fetcher = (...args) => fetch(...args).then(res => res.json())
@@ -9,23 +11,30 @@ function PokemonPage({ pokemon }) {
   const evolutions = getAllEvolutionsOf(evolutionChainData)
 
   return (
-    <div>
-      <h1>{pokemon.name}</h1> 
-      <img src={pokemon.sprites.other["official-artwork"].front_default} alt="" />
-      <h3>Evolution chain</h3>
+    <article className="PokemonPage">
 
-      {evolutions.map((pokemon) => {
-        if (typeof pokemon === 'string') {
-          return <p key={pokemon}>{pokemon}</p>
-        } else {
-          // TODO: this does not work for evee (and other pokemons with alternative evolutions)
-          let alternativeEvolutions = pokemon
-          alternativeEvolutions.map((pokemon) => {
-            return <p key={pokemon}>{pokemon}</p>
-          })
-        }
-      })}
-    </div>
+      <div className="PokemonPage__pokemon">
+        <img src={pokemon.sprites.other["official-artwork"].front_default} alt="Pokemon" />
+        <h1>{pokemon.name.toUpperCase()}</h1> 
+      </div>
+
+      <div className="PokemonPage__evolutions">
+        <h3>Evolutions</h3>
+        <section className="PokemonPage__evolution__pokemons">
+          {evolutions.map((pokemonName) => {
+            if (typeof pokemonName === 'string') {
+              return <MiniPokemon key={pokemonName} pokemonName={pokemonName} />
+            } else {
+              // TODO: this does not work for evee (and other pokemons with alternative evolutions)
+              let alternativeEvolutions = pokemonName
+              alternativeEvolutions.map((pokemonName) => {
+                return <p key={pokemonName}>{pokemonName}</p>
+              })
+            }
+          })}
+        </section>
+      </div>
+    </article>
   )
 }
 
