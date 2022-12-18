@@ -1,20 +1,24 @@
-import PokemonPage from "./pages/Home/PokemonPage"
 import useSWR from 'swr'
-import SearchBar from './components/form/SearchBar'
+import { useContext } from 'react'
+
+import { PokemonContext } from './contexts/pokemonContext'
+import Home from './pages/Home/Home'
 import './assets/globals.css'
 
-function App() {
-  const pokemonIDtoFetch = "1"
-  const fetcher = (...args) => fetch(...args).then(res => res.json())
-  const { data: pokemon, error: pokemonError, isLoading: pokemonisLoading } = useSWR(`https://pokeapi.co/api/v2/pokemon/${pokemonIDtoFetch}/`, fetcher)
+const fetcher = (...args) => fetch(...args).then(res => res.json())
 
+function App() {
+  const { bgColor } = useContext(PokemonContext);
+
+  const API_URL = "https://pokeapi.co/api/v2/pokemon/?limit=1154"
+  const { data: allPokemons, error: pokemonError, isLoading: pokemonisLoading } = useSWR(API_URL, fetcher)
+ 
   if (pokemonError ) return <div>failed to load</div>
   if (pokemonisLoading ) return <div>loading...</div>
 
   return (
-    <div className="App">
-      <SearchBar />
-      <PokemonPage pokemon={pokemon} />
+    <div className="App" style={{backgroundColor: bgColor}}>
+      <Home allPokemons={allPokemons.results} />
     </div>
   );
 }
