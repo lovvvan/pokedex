@@ -5,7 +5,7 @@ This is a web app where you can search for Pokémons that you want to see their 
 
 You can find the deployed site here:
 
-### `https://lovisaspokedex.netlify.app/`
+### [https://lovisaspokedex.netlify.app/](https://lovisaspokedex.netlify.app/)
 
 ## Functionalities
 
