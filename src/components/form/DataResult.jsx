@@ -6,7 +6,7 @@ function DataResult({
 }) {
   return (
     <div>
-      {filteredData?.map((pokemon, key) => {
+      {filteredData?.map((pokemon) => {
         return (
           <div
             key={pokemon.name}

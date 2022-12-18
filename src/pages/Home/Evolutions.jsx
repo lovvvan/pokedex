@@ -22,11 +22,8 @@ function Evolutions({ pokemonSpecies }) {
           if (typeof pokemonName === "string") {
             return <MiniPokemon key={pokemonName} pokemonName={pokemonName} />;
           } else {
-            // TODO: this does not work for evee (and other pokemons with alternative evolutions)
-            let alternativeEvolutions = pokemonName;
-            alternativeEvolutions.map((pokemonName) => {
-              return <p key={pokemonName}>{pokemonName}</p>;
-            });
+            // TODO: need to fix showing alternative evolutions for e.g. evee (and other pokemons with alternative evolutions)
+            return null;
           }
         })}
       </section>

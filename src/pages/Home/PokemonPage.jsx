@@ -20,7 +20,7 @@ function PokemonPage({ pokemon }) {
 
   useEffect(() => {
     setBgColor(pokemonSpecies?.color.name);
-  }, [pokemonSpecies]);
+  }, [pokemonSpecies, setBgColor]);
 
   return (
     <article className="PokemonPage">
