@@ -1,3 +1,5 @@
+import "./DataResult.css";
+
 function DataResult({
   filteredData,
   setQuery,
@@ -5,10 +7,11 @@ function DataResult({
   handleFetchPokemon,
 }) {
   return (
-    <div>
+    <div className="dataResult">
       {filteredData?.map((pokemon) => {
         return (
           <div
+            className="dataResult__item"
             key={pokemon.name}
             onClick={(e) => {
               setQuery("");

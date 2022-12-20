@@ -1,0 +1,30 @@
+.dataResult {
+    position: absolute;
+    /* TODO: make dropdown come right after input */
+    top: 2rem; 
+    max-height: 30rem;
+    width: 90%;
+    overflow: hidden;
+    overflow-y: auto; 
+    background-color: var(--main-form-bg);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.1px);
+    -webkit-backdrop-filter: blur(7.1px);
+}
+
+.dataResult__item {
+    padding: 0.5rem;
+    cursor: pointer;
+    width: 100%;
+}
+.dataResult__item:hover {
+    background-color: var(--form-bg-hover);
+}
+.dataResult::-webkit-scrollbar {
+    display: none;
+}
+
+.closeBtn {
+    cursor: pointer;
+}

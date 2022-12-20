@@ -1,7 +1,9 @@
 import SearchIcon from "@mui/icons-material/Search";
+import CloseIcon from "@mui/icons-material/Close";
+
 import "./SearchInput.css";
 
-function SearchInput({ handleFilter, placeholder, data, query }) {
+function SearchInput({ handleFilter, placeholder, data, query, clearInput }) {
   return (
     <div className="searchInputs">
       <input
@@ -12,7 +14,11 @@ function SearchInput({ handleFilter, placeholder, data, query }) {
         onChange={handleFilter}
       />
       <div className="searchIcon">
-        <SearchIcon />
+        {query.length > 0 ? (
+          <CloseIcon className="closeBtn" onClick={clearInput} />
+        ) : (
+          <SearchIcon />
+        )}
       </div>
     </div>
   );

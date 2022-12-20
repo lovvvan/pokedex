@@ -3,6 +3,9 @@
     flex-direction: row;
     border-radius: 20px;
     background-color: var(--main-input-bg);
+    padding: 0 0.5rem;
+    border: 1px solid grey;
+    width: 100%;
 }
 
 .searchInputs input {
@@ -15,8 +18,16 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     padding: 0.5rem;
+    width: inherit;
 }
 
 input:focus {
     outline: none;
+}
+
+.searchIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
 }
