@@ -3,8 +3,8 @@ import useSWR from "swr";
 import { useContext, useEffect } from "react";
 import { PokemonContext } from "../../contexts/pokemonContext";
 import Pokemon from "./Pokemon";
-import Evolutions from "./Evolutions";
 import "./PokemonPage.css";
+import PokemonInfo from "./PokemonInfo";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -25,7 +25,8 @@ function PokemonPage({ pokemon }) {
   return (
     <article className="PokemonPage">
       <Pokemon pokemon={pokemon} />
-      <Evolutions pokemonSpecies={pokemonSpecies} />
+      <div className="PokemonPage__Info-start"></div>
+      <PokemonInfo pokemonSpecies={pokemonSpecies} />
     </article>
   );
 }

@@ -16,7 +16,6 @@ function Evolutions({ pokemonSpecies }) {
 
   return (
     <div className="Evolutions">
-      <h3>Evolutions</h3>
       <section className="Evolutions__pokemons">
         {evolutions.map((pokemonName) => {
           if (typeof pokemonName === "string") {

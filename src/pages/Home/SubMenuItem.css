@@ -1,0 +1,4 @@
+.SubMenuItem p {
+    cursor: pointer;
+    padding: 1rem;
+}

@@ -5,6 +5,17 @@
     align-items: center;
     justify-content: space-around;
     /* min-height: 100%; */
+    width: 100%;
+}
+
+.PokemonPage__Info-start {
+    position: absolute;
+    top: 60%;
+    bottom: -10rem;
+    background-color: var(--main-bg-light);
+    width: 100%;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
 }
 
 

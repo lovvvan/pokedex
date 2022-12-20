@@ -1,0 +1,20 @@
+.PokemonInfo {
+    background-color: white;
+    width: 100%;
+    padding: 1rem 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+}
+
+.PokemonInfo__subMenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 2rem;
+
+}
+
+.PokemonInfo__inner {
+    max-width: 1200px;
+}

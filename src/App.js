@@ -4,6 +4,7 @@ import { useContext, useState } from 'react'
 import { PokemonContext } from './contexts/pokemonContext'
 import Home from './pages/Home/Home'
 import './assets/globals.css'
+import './App.css'
 import Navbar from './components/Navigation/Navbar'
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
@@ -26,8 +27,10 @@ function App() {
 
   return (
     <div className="App" style={{backgroundColor: bgColor}}>
-      <Navbar allPokemons={allPokemons.results} handleFetchPokemon={handleFetchPokemon}/>
-      <Home shouldFetch={shouldFetch} apiUrlPokemon={apiUrlPokemon} />
+      <div className="bgFilter">
+        <Navbar allPokemons={allPokemons.results} handleFetchPokemon={handleFetchPokemon}/>
+        <Home shouldFetch={shouldFetch} apiUrlPokemon={apiUrlPokemon} />
+      </div>
     </div>
   );
 }

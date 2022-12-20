@@ -4,7 +4,7 @@
     border-radius: 20px;
     background-color: var(--main-input-bg);
     padding: 0 0.5rem;
-    border: 1px solid grey;
+    border: 1px solid var(--main-input-border);
     width: 100%;
 }
 
