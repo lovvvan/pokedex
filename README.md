@@ -3,6 +3,10 @@
 
 This is a web app where you can search for Pokémons that you want to see their evolutions of.
 
+You can find the deployed site here:
+
+### [https://lovisaspokedex.netlify.app/](https://lovisaspokedex.netlify.app/)
+
 ## Functionalities
 
 Search Pokémon: You can see results while typing. However, you have to click on one one of the pokemons to pick it.
