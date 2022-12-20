@@ -16,17 +16,9 @@ function App() {
   const apiUrlAllPokemons = "https://pokeapi.co/api/v2/pokemon/?limit=1154"
   const { data: allPokemons, error: pokemonError, isLoading: pokemonisLoading } = useSWR(apiUrlAllPokemons, fetcher)
  
-  const {
-    data: pokemon,
-    error,
-    isLoading,
-  } = useSWR(shouldFetch ? apiUrlPokemon : null, fetcher);
-
-
   if (pokemonError ) return <div>failed to load</div>
   if (pokemonisLoading ) return <div>loading...</div>
 
- 
   function handleFetchPokemon(e, API_URL) {
     setApiUrlPokemon(API_URL);
     setShouldFetch(true);
@@ -35,7 +27,7 @@ function App() {
   return (
     <div className="App" style={{backgroundColor: bgColor}}>
       <Navbar allPokemons={allPokemons.results} handleFetchPokemon={handleFetchPokemon}/>
-      <Home pokemon={pokemon} isLoading={isLoading} shouldFetch={shouldFetch} error={error}/>
+      <Home shouldFetch={shouldFetch} apiUrlPokemon={apiUrlPokemon} />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 .dataResult {
     position: absolute;
-    /* TODO: make dropdown come right after input */
+    /* TODO: make dropdown come right after input instead*/
     top: 2rem; 
     max-height: 30rem;
     width: 90%;
