@@ -1,6 +1,11 @@
+import { useContext, useEffect } from "react";
+import { PokemonContext } from "../../contexts/pokemonContext";
+
 import "./Pokemon.css";
 
-function Pokemon({ pokemon }) {
+function Pokemon() {
+  const { pokemon } = useContext(PokemonContext);
+
   return (
     <div className="Pokemon">
       <p className="Pokemon__id">#{pokemon?.id}</p>

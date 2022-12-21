@@ -9,7 +9,7 @@ import PokemonInfo from "./PokemonInfo";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 function PokemonPage({ pokemon }) {
-  const { setBgColor } = useContext(PokemonContext);
+  // const { setBgColor } = useContext(PokemonContext);
 
   const { data: pokemonSpecies } = useSWR(
     pokemon
@@ -18,13 +18,13 @@ function PokemonPage({ pokemon }) {
     fetcher
   );
 
-  useEffect(() => {
-    setBgColor(pokemonSpecies?.color.name);
-  }, [pokemonSpecies, setBgColor]);
+  // useEffect(() => {
+  //   setBgColor(pokemonSpecies?.color.name);
+  // }, [pokemonSpecies, setBgColor]);
 
   return (
     <article className="PokemonPage">
-      <Pokemon pokemon={pokemon} />
+      <Pokemon />
       <div className="PokemonPage__Info-start"></div>
       <PokemonInfo pokemonSpecies={pokemonSpecies} />
     </article>

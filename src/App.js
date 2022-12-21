@@ -10,7 +10,7 @@ import Navbar from './components/Navigation/Navbar'
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 function App() {
-  const { bgColor } = useContext(PokemonContext);
+  // const { bgColor } = useContext(PokemonContext);
   const [apiUrlPokemon, setApiUrlPokemon] = useState("");
   const [shouldFetch, setShouldFetch] = useState(false);
 
@@ -26,7 +26,8 @@ function App() {
   }
 
   return (
-    <div className="App" style={{backgroundColor: bgColor}}>
+    <div className="App" >
+      {/* style={{backgroundColor: bgColor}}> */}
       <div className="bgFilter">
         <Navbar allPokemons={allPokemons.results} handleFetchPokemon={handleFetchPokemon}/>
         <Home shouldFetch={shouldFetch} apiUrlPokemon={apiUrlPokemon} />
