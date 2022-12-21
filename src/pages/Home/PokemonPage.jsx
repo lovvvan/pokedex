@@ -10,6 +10,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 function PokemonPage({ pokemon }) {
   // const { setBgColor } = useContext(PokemonContext);
+  const { dispatch } = useContext(PokemonContext);
 
   const { data: pokemonSpecies } = useSWR(
     pokemon
@@ -20,6 +21,10 @@ function PokemonPage({ pokemon }) {
 
   // useEffect(() => {
   //   setBgColor(pokemonSpecies?.color.name);
+  // }, [pokemonSpecies, setBgColor]);
+
+  // useEffect(() => {
+  //   dispatch({ type: "setSpecies", pokemonSpecies }); //pokemonSpecies?.color.name);
   // }, [pokemonSpecies, setBgColor]);
 
   return (
