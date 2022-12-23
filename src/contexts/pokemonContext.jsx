@@ -1,5 +1,5 @@
 import { createContext, useReducer } from "react";
-import { pokemonReducer, INITIAL_VALUE } from "../reducers/pokemonReducer";
+import { pokemonReducer, INITIAL_VALUE } from "./pokemonReducer";
 
 export const PokemonContext = createContext();
 
