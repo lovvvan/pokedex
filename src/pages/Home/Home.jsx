@@ -1,9 +1,9 @@
 import useSWR from "swr";
 
-import PokemonPage from "./PokemonPage";
 import "./Home.css";
 import { useContext, useEffect } from "react";
 import { PokemonContext } from "../../contexts/pokemonContext";
+import PokemonPage from "../../features/PokemonInfo/PokemonPage";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -22,9 +22,7 @@ function Home({ shouldFetch, apiUrlPokemon }) {
 
   return (
     <div className="Home">
-      {isLoading
-        ? "Loading..."
-        : shouldFetch && <PokemonPage pokemon={pokemon} />}
+      {isLoading ? "Loading..." : shouldFetch && <PokemonPage />}
       {error ? "Error getting Pokemons" : null}
     </div>
   );
