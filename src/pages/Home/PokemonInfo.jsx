@@ -5,7 +5,7 @@ import Evolutions from "./Evolutions";
 import "./PokemonInfo.css";
 import SubMenuItem from "./SubMenuItem";
 
-function PokemonInfo({ pokemonSpecies }) {
+function PokemonInfo() {
   const [activePage, setActivePage] = useState("About");
 
   function handleClick(pageName) {
@@ -34,9 +34,7 @@ function PokemonInfo({ pokemonSpecies }) {
         </div>
         {activePage === "About" && <About />}
         {activePage === "Attacks" && <Attacks />}
-        {activePage === "Evolutions" && (
-          <Evolutions pokemonSpecies={pokemonSpecies} />
-        )}
+        {activePage === "Evolutions" && <Evolutions />}
       </div>
     </div>
   );

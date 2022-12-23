@@ -8,30 +8,25 @@ import PokemonInfo from "./PokemonInfo";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-function PokemonPage({ pokemon }) {
-  // const { setBgColor } = useContext(PokemonContext);
-  const { dispatch } = useContext(PokemonContext);
+function PokemonPage() {
+  const { state, dispatch } = useContext(PokemonContext);
 
-  const { data: pokemonSpecies } = useSWR(
-    pokemon
-      ? `https://pokeapi.co/api/v2/pokemon-species/${pokemon.name}/`
+  const { data: species } = useSWR(
+    state.pokemon
+      ? `https://pokeapi.co/api/v2/pokemon-species/${state.pokemon.name}/`
       : null,
     fetcher
   );
 
-  // useEffect(() => {
-  //   setBgColor(pokemonSpecies?.color.name);
-  // }, [pokemonSpecies, setBgColor]);
-
-  // useEffect(() => {
-  //   dispatch({ type: "setSpecies", pokemonSpecies }); //pokemonSpecies?.color.name);
-  // }, [pokemonSpecies, setBgColor]);
+  useEffect(() => {
+    species && dispatch({ type: "setSpecies", species });
+  }, [species]);
 
   return (
     <article className="PokemonPage">
       <Pokemon />
       <div className="PokemonPage__Info-start"></div>
-      <PokemonInfo pokemonSpecies={pokemonSpecies} />
+      <PokemonInfo />
     </article>
   );
 }

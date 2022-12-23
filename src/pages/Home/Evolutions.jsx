@@ -1,4 +1,6 @@
 import useSWR from "swr";
+import { useContext, useEffect } from "react";
+import { PokemonContext } from "../../contexts/pokemonContext";
 
 import MiniPokemon from "./MiniPokemon";
 import { getAllEvolutionsOf } from "../../utils/utils";
@@ -6,18 +8,24 @@ import "./Evolutions.css";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-function Evolutions({ pokemonSpecies }) {
+function Evolutions() {
+  const { state, dispatch } = useContext(PokemonContext);
+
   const { data: evolutionChainData } = useSWR(
-    pokemonSpecies ? pokemonSpecies["evolution_chain"].url : null,
+    state?.species ? state.species["evolution_chain"].url : null,
     fetcher
   );
+  const evolutions =
+    evolutionChainData && getAllEvolutionsOf(evolutionChainData);
 
-  const evolutions = getAllEvolutionsOf(evolutionChainData);
+  useEffect(() => {
+    evolutions && dispatch({ type: "setEvolutions", evolutions });
+  }, [evolutionChainData]);
 
   return (
     <div className="Evolutions">
       <section className="Evolutions__pokemons">
-        {evolutions.map((pokemonName) => {
+        {evolutions?.map((pokemonName) => {
           if (typeof pokemonName === "string") {
             return <MiniPokemon key={pokemonName} pokemonName={pokemonName} />;
           } else {

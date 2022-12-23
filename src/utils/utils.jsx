@@ -1,9 +1,11 @@
 function getAlternativeEvolutions(nextEvolution) {
   let alternativeEvolutions = [];
+
   for (let i = 0; i < nextEvolution.length; i++) {
     let otherEvolution = nextEvolution[i].species.name;
     alternativeEvolutions.push(otherEvolution);
   }
+
   return alternativeEvolutions;
 }
 
@@ -21,6 +23,7 @@ function getNextEvolution(evolutions, nextEvolution) {
   } else {
     nextEvolution = false;
   }
+
   return nextEvolution;
 }
 
@@ -36,5 +39,6 @@ export function getAllEvolutionsOf(evolutionChainData) {
       nextEvolution = getNextEvolution(evolutions, nextEvolution);
     }
   }
+
   return evolutions;
 }

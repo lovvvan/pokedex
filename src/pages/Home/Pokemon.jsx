@@ -1,17 +1,17 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { PokemonContext } from "../../contexts/pokemonContext";
 
 import "./Pokemon.css";
 
 function Pokemon() {
-  const { pokemon } = useContext(PokemonContext);
+  const { state } = useContext(PokemonContext);
 
   return (
     <div className="Pokemon">
-      <p className="Pokemon__id">#{pokemon?.id}</p>
-      <h1>{pokemon?.name.toUpperCase()}</h1>
+      <p className="Pokemon__id">#{state?.pokemon?.id}</p>
+      <h1>{state?.pokemon?.name.toUpperCase()}</h1>
       <img
-        src={pokemon?.sprites.other["official-artwork"].front_default}
+        src={state?.pokemon?.sprites.other["official-artwork"].front_default}
         alt="Pokemon"
       />
     </div>
