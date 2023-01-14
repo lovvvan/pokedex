@@ -1,5 +1,6 @@
 import useSWR from 'swr'
 import { useContext, useState } from 'react'
+import { createBrowserRouter, createRoutesFromElements, Route, Outlet, RouterProvider } from 'react-router-dom'
 
 import { PokemonContext } from './contexts/pokemonContext'
 import Home from './pages/Home/Home'
@@ -26,16 +27,32 @@ function App() {
     setShouldFetch(true);
   }
 
-
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<Root allPokemons={allPokemons.results} handleFetchPokemon={handleFetchPokemon} />} >
+        <Route index element={<Home shouldFetch={shouldFetch} apiUrlPokemon={apiUrlPokemon} />} />
+      </Route>
+    )
+  )
 
   return (
     <div className="App" style={bgColor}>
       <div className="bgFilter">
-        <Navbar allPokemons={allPokemons.results} handleFetchPokemon={handleFetchPokemon}/>
-        <Home shouldFetch={shouldFetch} apiUrlPokemon={apiUrlPokemon} />
+        {/* <Home shouldFetch={shouldFetch} apiUrlPokemon={apiUrlPokemon} /> */}
+        <RouterProvider router={router} />
       </div>
     </div>
   );
+}
+
+const Root = ( { allPokemons, handleFetchPokemon }) => {
+
+  return (
+    <>
+      <Navbar allPokemons={allPokemons} handleFetchPokemon={handleFetchPokemon}/>
+      <Outlet />
+    </>
+  )
 }
 
 export default App;
